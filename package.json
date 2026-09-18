@@ -1,0 +1,55 @@
+{
+  "name": "pi-ime-slash",
+  "version": "0.1.0",
+  "description": "CJK IME fix for pi: turn a leading 、 into / and switch to your English input source.",
+  "type": "module",
+  "license": "MIT",
+  "author": "doer <840004959@qq.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simplast/pi-ime-slash.git"
+  },
+  "homepage": "https://github.com/simplast/pi-ime-slash#readme",
+  "bugs": {
+    "url": "https://github.com/simplast/pi-ime-slash/issues"
+  },
+  "keywords": [
+    "pi-package",
+    "pi",
+    "pi-coding-agent",
+    "extension",
+    "ime",
+    "cjk",
+    "chinese",
+    "input-method",
+    "input-source",
+    "macos",
+    "im-select"
+  ],
+  "files": [
+    "index.ts",
+    "src",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": ">=0.74.0",
+    "@earendil-works/pi-tui": ">=0.74.0"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^0.85.1",
+    "@earendil-works/pi-tui": "^0.85.1",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}
