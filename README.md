@@ -52,7 +52,7 @@ All configuration is via environment variables, so there is no config file.
 
 | Variable | Default | Description |
 | --- | --- | --- |
-| `PI_IME_SLASH` | `1` | Set to `0` to start disabled. |
+| `PI_IME_SLASH` | `1` | Set to `0` to start pi with the replacement disabled. |
 | `PI_IME_SLASH_MAP` | `{"、":"/","／":"/"}` | JSON object replacing the character map. |
 | `PI_IME_SLASH_ENGLISH_SOURCE` | auto | Input source id to switch to, e.g. `com.apple.keylayout.US`. |
 | `PI_IME_SLASH_SWITCH_CMD` | — | Custom switch command. `{source}` is substituted. |
@@ -85,6 +85,18 @@ Two details worth knowing:
 - **Terminals with the Kitty keyboard protocol or xterm `modifyOtherKeys` are handled too.** Those report committed text as escape sequences instead of raw UTF-8, so both encodings are decoded before the leading-character check.
 
 The extension only affects pi's own prompt editor. Dialog inputs (`/model` filtering, settings, extension selectors) do not route through it, so they are never altered.
+
+## What it touches on your system
+
+No background service is installed and nothing auto-starts:
+
+- **No daemon, no background process, no timers.** The extension lives exactly as long as pi does. It does not write launchd / LaunchAgent / login-item entries.
+- **No postinstall hook.** `npm install` runs nothing extra on your machine.
+- **The only subprocess is `im-select`, and only when you press `、`.** It is a one-shot command: switch the input source, then exit.
+- **The only persistent side effect is your current input source.** It switches the OS input method to English, exactly as pressing Ctrl+Space yourself would. Nothing is written to any config file.
+- **Environment variables are not persisted.** `PI_IME_SLASH` and friends apply to that one pi run; export them from `~/.zshrc` if you want them permanent.
+
+If you would rather it never touch the input method, point the switch command at a no-op or simply leave `im-select` uninstalled — the `、` → `/` replacement still works on its own.
 
 ## Development
 

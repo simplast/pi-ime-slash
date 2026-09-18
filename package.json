@@ -1,6 +1,6 @@
 {
   "name": "pi-ime-slash",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CJK IME fix for pi: turn a leading 、 into / and switch to your English input source.",
   "type": "module",
   "license": "MIT",

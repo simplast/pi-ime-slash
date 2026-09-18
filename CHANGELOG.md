@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1
+
+- Clarify that `PI_IME_SLASH=0` disables the feature for that pi run; it is not
+  a startup service. Document exactly what the extension does and does not
+  touch on the host system.
+- Add a Simplified Chinese README (`README.zh-CN.md`).
+
 ## 0.1.0
 
 Initial release.
