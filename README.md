@@ -1,5 +1,7 @@
 # pi-ime-slash
 
+**English** | [简体中文](README.zh-CN.md)
+
 Typing a leading `、` in pi is almost always a mistake: your CJK input method committed a full-width comma where you meant the `/` that starts a slash command. This extension fixes both halves of that problem.
 
 - **`、` → `/`** when it is the first character of an empty prompt
